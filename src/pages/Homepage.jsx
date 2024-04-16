@@ -7,7 +7,6 @@ const Homepage = () => {
   return (
     <Suspense fallback={<Loder/>}>
     <LazySlider />
-    <h1>Home Page</h1>
   </Suspense>
   )
 }

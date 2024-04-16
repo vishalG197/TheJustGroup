@@ -3,16 +3,17 @@ import Navbar from './components/Navbar'
 import Slider from './components/Slider'
 import Footer from './components/Footer'
 import AllRoutes from './components/AllRoutes'
+import  './App.css'
 
 function App() {
   
 
   return (
-    <>
+    <div>
       <Navbar/>
       <AllRoutes/>
       <Footer/>
-    </>
+    </div>
   )
 }
 

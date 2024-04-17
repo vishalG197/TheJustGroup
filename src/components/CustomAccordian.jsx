@@ -11,14 +11,20 @@ const fadeIn = keyframes`
 `;
 
 const AccordionWrapper = styled.div`
-  width: 85%;
+  width: 95%;
 `;
 
 const AccordionItem = styled.div`
-  margin-bottom: 10px;
+//   margin-bottom: 1px;
+border: 1px solid #ffff;
+
+  
 `;
 
 const AccordionButton = styled.button`
+
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   background-color: #f0f0f0;
   border: none;
@@ -26,58 +32,115 @@ const AccordionButton = styled.button`
   text-align: left;
   cursor: pointer;
   outline: none;
+  div{
+    font-size: 20px;
+    color: #30497a;
+    
+  }
+  div a{
+    text-decoration: none;
+    color: #30497a;
+  }
 `;
+
 
 const AccordionContent = styled.div`
   display: ${({ isOpen }) => isOpen ? 'block' : 'none'};
   animation: ${fadeIn} 0.5s ease;
+  
 `;
 
 const NestedLink = styled.a`
   display: block;
-  padding: 5px 40px;
+  padding: 10px 20px;
   text-decoration: none;
-  color: #333;
+  color: #30497a;
+  background-color:#ffff;
+  border: 1px solid #f0f0f0;
 `;
 
 const NestedAccordionContent = styled.div`
-  margin-left: 20px;
+//   margin-left: 20px;
+
 `;
 
 const CustomAccordion = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+    const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+    const toggleAccordion = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
 
-  return (
-    <AccordionWrapper>
-      <AccordionItem>
-        <AccordionButton onClick={() => toggleAccordion(0)}>
-         <a href=""> About {openIndex === 0 ? '-' : '+'}</a>
-        </AccordionButton>
-        <AccordionContent isOpen={openIndex === 0}>
-          <NestedAccordionContent>
-            <NestedLink href="#">Nested Link 1</NestedLink>
-            <NestedLink href="#">Nested Link 2</NestedLink>
-            <NestedLink href="#">Nested Link 3</NestedLink>
-          </NestedAccordionContent>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionButton onClick={() => toggleAccordion(1)}>
-          Accordion Item 2 {openIndex === 1 ? '-' : '+'}
-        </AccordionButton>
-        <AccordionContent isOpen={openIndex === 1}>
-          <NestedAccordionContent>
-            <NestedLink href="#">Nested Link 1</NestedLink>
-            <NestedLink href="#">Nested Link 2</NestedLink>
-          </NestedAccordionContent>
-        </AccordionContent>
-      </AccordionItem>
-    </AccordionWrapper>
-  );
+    return (
+        <AccordionWrapper>
+            <AccordionItem>
+                <AccordionButton onClick={() => toggleAccordion(0)}>
+
+                    <div ><a href=""> About </a></div> <div>{openIndex === 0 ? '-' : '+'}</div>
+                </AccordionButton>
+                <AccordionContent isOpen={openIndex === 0}>
+                    <NestedAccordionContent>
+                        <NestedLink href="#">Our History</NestedLink>
+                        <NestedLink href="#">Our People</NestedLink>
+                        <NestedLink href="#">Our Investor</NestedLink>
+
+                    </NestedAccordionContent>
+                </AccordionContent>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionButton onClick={() => toggleAccordion(1)}>
+                    <div><a href="">Our Brands</a></div> <div>{openIndex === 1 ? '-' : '+'}</div>
+                </AccordionButton>
+                <AccordionContent isOpen={openIndex === 1}>
+                    <NestedAccordionContent>
+                        <NestedLink href="#">Just Jeans</NestedLink>
+                        <NestedLink href="#">Portmans</NestedLink>
+                        <NestedLink href="#">Dotti</NestedLink>
+                        <NestedLink href="#">Jay Jays</NestedLink>
+                        <NestedLink href="#">Jacqui E</NestedLink>
+                    </NestedAccordionContent>
+                </AccordionContent>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionButton onClick={() => toggleAccordion(2)}>
+                    <div><a href="">Better Practices</a></div> <div>{openIndex === 2 ? '-' : '+'}</div>
+                </AccordionButton>
+                <AccordionContent isOpen={openIndex === 2}>
+                    <NestedAccordionContent>
+                        <NestedLink href="#">Our Commitment</NestedLink>
+
+                    </NestedAccordionContent>
+                </AccordionContent>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionButton onClick={() => toggleAccordion(3)}>
+                    <div><a href="">Careers</a></div> <div>{openIndex === 3 ? '-' : '+'}</div>
+                </AccordionButton>
+                <AccordionContent isOpen={openIndex === 3}>
+                    <NestedAccordionContent>
+                        <NestedLink href="#">Retail Stores</NestedLink>
+                        <NestedLink href="#">Support Office</NestedLink>
+                        <NestedLink href="#">Distribution Centre</NestedLink>
+                        <NestedLink href="#">Job Search</NestedLink>
+                        <NestedLink href="#">Existing Applicants</NestedLink>
+
+                    </NestedAccordionContent>
+                </AccordionContent>
+            </AccordionItem>
+            <AccordionItem>
+            <AccordionButton onClick={() => toggleAccordion(4)}>
+                <div><a href="">Contact</a></div> <div>{openIndex === 4 ? '-' : '+'}</div>
+            </AccordionButton>
+            <AccordionContent isOpen={openIndex === 4}>
+                <NestedAccordionContent>
+                    <NestedLink href="#">Corporate Gift Cards</NestedLink>
+                    <NestedLink href="#">Just Group Enquiries</NestedLink>
+                    <NestedLink href="#">Brand Enquiries</NestedLink>
+                </NestedAccordionContent>
+            </AccordionContent>
+        </AccordionItem>
+        </AccordionWrapper >
+    );
 };
 
 export default CustomAccordion;

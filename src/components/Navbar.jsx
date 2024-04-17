@@ -3,129 +3,154 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { MdClose } from "react-icons/md";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
+
+import 'react-accessible-accordion/dist/fancy-example.css';
+import CustomAccordion from './CustomAccordian';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <NavbarDiv>
-      <div className="logo">
-        <Link to='/'>
-          <img src={'https://www.justgroup.com.au/images/logo.png'} alt='Company Logo' />
-        </Link>
-      </div>
-      <div className="links">
-        <NavLink to="/about"
-          onMouseEnter={() => document.getElementById('about_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('about_dropdown').style.display = 'none'}
-        >About</NavLink>
-        <DropDown
-          onMouseEnter={() => document.getElementById('about_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('about_dropdown').style.display = 'none'}
-          id='about_dropdown' style={{ display: 'none' }} >
-          <ul>
-            <li><b>OUR HISTORY</b></li>
-            <li><b>OUR PEOPLE</b></li>
+    <nav>
+      <NavbarDiv>
+        <div className="logo">
+          <Link to='/'>
+            <img src={'https://www.justgroup.com.au/images/logo.png'} alt='Company Logo' />
+           
+          </Link>
+        </div>
+        <div className="links">
+          <NavLink to="/about"
+            onMouseEnter={() => document.getElementById('about_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('about_dropdown').style.display = 'none'}
+          >About</NavLink>
+          <DropDown
+            onMouseEnter={() => document.getElementById('about_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('about_dropdown').style.display = 'none'}
+            id='about_dropdown' style={{ display: 'none' }} >
             <ul>
-              <li>Bord of Directors</li>
-              <li>Senior Leaders</li>
+              <li><a href="#"><b>OUR HISTORY</b></a></li>
+              <li><a href="#"><b>OUR PEOPLE</b></a></li>
+              <ul>
+                <li><a href="#">Bord of Directors</a></li>
+                <li><a href="#">Senior Leaders</a></li>
+              </ul>
+              <li><a href="#"><b>OUR INVESTORS</b></a></li>
+              <ul>
+                <li><a href="#">PMV</a></li>
+              </ul>
             </ul>
-            <li><b>OUR INVESTORS</b></li>
-            <ul>
-              <li>PMV</li>
-            </ul>
-          </ul>
-        </DropDown>
+          </DropDown>
 
-        <NavLink to="/our_brands"
-          onMouseEnter={() => document.getElementById('brands_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
-        >Our Brands</NavLink>
-        <DropDown id='brands_dropdown' style={{ display: 'none', width: '480px' }}
-          onMouseEnter={() => document.getElementById('brands_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
-        >
-          <ul>
-            <li><b>PETER ALEXANDER</b></li>
-            <li><b> JUST JEANS</b></li>
-            <li><b>PORTMANS</b></li>
-            <li><b>DOTTI</b></li>
-            <li><b>JAY JAYS</b></li>
-            <li><b>JACQUI E</b></li>
-            <li><b>SMIGGLE </b></li>
-          </ul>
-        </DropDown>
-        <NavLink to="/better_practices"
-          onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
-        >Better Practices</NavLink>
-        <DropDown id='practieces_dropdown' style={{ display: 'none', width: '340px' }}
-          onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
-        >
-          <ul>
-            <li><b>OUR COMMITMENT</b></li>
+          <NavLink to="/our_brands"
+            onMouseEnter={() => document.getElementById('brands_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
+          >Our Brands</NavLink>
+          <DropDown id='brands_dropdown' style={{ display: 'none', width: '480px' }}
+            onMouseEnter={() => document.getElementById('brands_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
+          >
             <ul>
-              <li>People</li>
-              <li>Partners</li>
-              <li>Planet</li>
-              <li>Product</li>
+              {/* <li><a href="#"><b>PETER ALEXANDER</b></a></li> */}
+              <li><a href="#"><b> JUST JEANS</b></a></li>
+              <li><a href="#"><b>PORTMANS</b></a></li>
+              <li><a href="#"><b>DOTTI</b></a></li>
+              <li><a href="#"><b>JAY JAYS</b></a></li>
+              <li><a href="#"><b>JACQUI E</b></a></li>
+              {/* <li><a href="#"><b>SMIGGLE </b></a></li> */}
             </ul>
-          </ul>
-        </DropDown>
-        <NavLink to="/careers"
-          onMouseEnter={() => document.getElementById('careers_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('careers_dropdown').style.display = 'none'}
-        >Careers</NavLink>
-        <DropDown id='careers_dropdown' style={{ display: 'none', width: '290px' }}
-          onMouseEnter={() => document.getElementById('careers_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('careers_dropdown').style.display = 'none'}
-        >
-          <ul>
-            <li><b>RETAIL STORES</b></li>
-            <li><b>SUPPORT OFFICE</b></li>
-            <li><b>DISTRIBUTION CENTRE</b></li>
-            <li><b>JOB SEARCH</b></li>
-            <li><b>EXISTING APPLICANTS</b></li>
-          </ul>
-        </DropDown>
-        <NavLink to="/contact"
-          onMouseEnter={() => document.getElementById('contacts_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('contacts_dropdown').style.display = 'none'}
-        >Contact</NavLink>
-        <DropDown id='contacts_dropdown' style={{ display: 'none', width: '290px' }}
-          onMouseEnter={() => document.getElementById('contacts_dropdown').style.display = 'block'}
-          onMouseLeave={() => document.getElementById('contacts_dropdown').style.display = 'none'}
-        >
-          <ul>
-            <li><b>CORPORATE GIFT CARDS</b></li>
-            <li><b>JUST GROUP ENQUIRIES</b></li>
-            <li><b>BRAND ENQUIRIES</b></li>
-          </ul>
-        </DropDown>
-      </div>
-      <div className='humburger'>
-        {!open?<RxHamburgerMenu onClick={()=>setOpen(!open)}  />:<MdClose onClick={()=>setOpen(!open)}/>}
-        
-      </div>
-    </NavbarDiv>
+          </DropDown>
+          <NavLink to="/better_practices"
+            onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
+          >Better Practices</NavLink>
+          <DropDown id='practieces_dropdown' style={{ display: 'none', width: '340px' }}
+            onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
+          >
+            <ul>
+              <li><a href=""><b>OUR COMMITMENT</b></a></li>
+              <ul>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Partners</a></li>
+                <li><a href="#">Planet</a></li>
+                <li><a href="#">Product</a></li>
+              </ul>
+            </ul>
+          </DropDown>
+          <NavLink to="/careers"
+            onMouseEnter={() => document.getElementById('careers_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('careers_dropdown').style.display = 'none'}
+          >Careers</NavLink>
+          <DropDown id='careers_dropdown' style={{ display: 'none', width: '290px' }}
+            onMouseEnter={() => document.getElementById('careers_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('careers_dropdown').style.display = 'none'}
+          >
+            <ul>
+              <li><a href="#"><b>RETAIL STORES</b></a></li>
+              <li><a href="#"><b>SUPPORT OFFICE</b></a></li>
+              <li><a href="#"><b>DISTRIBUTION CENTRE</b></a></li>
+              <li><a href="#"><b>JOB SEARCH</b></a></li>
+              <li><a href="#"><b>EXISTING APPLICANTS</b></a></li>
+            </ul>
+          </DropDown>
+          <NavLink to="/contact"
+            onMouseEnter={() => document.getElementById('contacts_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('contacts_dropdown').style.display = 'none'}
+          >Contact</NavLink>
+          <DropDown id='contacts_dropdown' style={{ display: 'none', width: '290px' }}
+            onMouseEnter={() => document.getElementById('contacts_dropdown').style.display = 'block'}
+            onMouseLeave={() => document.getElementById('contacts_dropdown').style.display = 'none'}
+          >
+            <ul>
+              <li><a href="#"><b>CORPORATE GIFT CARDS</b></a></li>
+              <li><a href="#"><b>JUST GROUP ENQUIRIES</b></a></li>
+              <li><a href="#"><b>BRAND ENQUIRIES</b></a></li>
+            </ul>
+          </DropDown>
+        </div>
+
+        <div className='humburger'>
+          {!open ? <RxHamburgerMenu onClick={() => setOpen(!open)} /> : <MdClose onClick={() => setOpen(!open)} />}
+        </div>
+      </NavbarDiv>
+      {open && <Drawer>
+        <AccordionDrawer />
+        {/* <CustomAccordion/> */}
+      </Drawer>}
+
+    </nav>
   )
 }
 
 export default Navbar;
 
+const nav = styled.nav`
+  width:100%;
+
+  `
+
 const NavbarDiv = styled.div`
- width:100%;
-  color: black;
+  width:100%;
+  height: 110px;
+  top:0;
+  right:0;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #67729D;
   z-index:10;
   
   .humburger{
     display:none;
-    color:#30497a;
+    color:#ffff;
     font-size:40px;
     @media (max-width: 600px){
       font-size:30px;
@@ -155,7 +180,7 @@ const NavbarDiv = styled.div`
  
 .links {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
     
   @media (max-width: 960px) {
@@ -169,38 +194,31 @@ const NavbarDiv = styled.div`
 
 const NavLink = styled(Link)`
  
-  color: #30497a;
+  color: #ffff;
+  // color: #30497a;
   font-weight: bold;
   font-size: 1rem;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.3s ease;
-  padding:20px 0;
-  
-  
-  @media (max-width: 1180px) {
-   padding:50px 0;
-   
-  
-  }
-
+  padding:10px 10px;
+  border-radius: 10px;
   
   &:hover {
-    border-bottom-color: #30497a;   
+    text-decoration : underline; 
+
+    background-color: rgba(0, 0, 0, 0.2); 
   }
 `;
 const DropDown = styled.div`
  
 
   position: absolute;
-  top: 100px;
+  top: 70px;
   right: 10px;
   padding:10px;
   width: 570px;
-
-
-
-  background-color: white;
+  background-color: #67729D;
   transition: border-bottom 0.3s ease;
   z-index:20;
 
@@ -212,8 +230,62 @@ const DropDown = styled.div`
 
   li {
     padding: 5px;
-    color: #30497a;
+    a:hover {
+      text-decoration: underline;
+    }
   }
- 
-  
+  li a{
+    text-decoration:none;
+    color: #ffff;
+   
+  }
+  li a b{
+    text-decoration:none;
+    color: #fffff;
+  }
 `;
+
+const Drawer = styled.div`
+  position:absolute;
+  width:85%;
+  z-index:100;
+
+`
+
+
+
+function AccordionDrawer() {
+  return (
+    <Accordion>
+      <AccordionItem>
+        <AccordionItemHeading>
+          <AccordionItemButton>
+            What harsh truths do you prefer to ignore?
+          </AccordionItemButton>
+        </AccordionItemHeading>
+        <AccordionItemPanel>
+          <p>
+            Exercitation in fugiat est ut ad ea cupidatat ut in
+            cupidatat occaecat ut occaecat consequat est minim minim
+            esse tempor laborum consequat esse adipisicing eu
+            reprehenderit enim.
+          </p>
+        </AccordionItemPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionItemHeading>
+          <AccordionItemButton>
+            Is free will real or just an illusion?
+          </AccordionItemButton>
+        </AccordionItemHeading>
+        <AccordionItemPanel>
+          <p>
+            In ad velit in ex nostrud dolore cupidatat consectetur
+            ea in ut nostrud velit in irure cillum tempor laboris
+            sed adipisicing eu esse duis nulla non.
+          </p>
+        </AccordionItemPanel>
+      </AccordionItem>
+    </Accordion>
+  );
+}

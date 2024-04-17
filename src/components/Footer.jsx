@@ -113,7 +113,9 @@ const FooterDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #30497a;
+  // color: #30497a;
+  color: #ffff;
+  background-color: #67729D;
  
   
   .logo  {
@@ -125,7 +127,8 @@ const FooterDiv = styled.div`
 
   }
   a {
-    color: #30497a;
+    // color: #30497a;
+    color: #ffff;
     text-decoration: none;
     font-size:14px;
   }

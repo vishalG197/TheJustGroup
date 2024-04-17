@@ -35,13 +35,11 @@ const Footer = () => {
           <ul>
             <li className="headingList"><a href="#">OUR BRAND</a></li>
             <ul>
-              <li><a href="#">PETER ALEXANDER</a></li>
               <li><a href="#">JUST JEANS</a></li>
               <li><a href="#">PORTMANS</a></li>
               <li><a href="#">DOTTI</a></li>
               <li><a href="#">JAY JAYS</a></li>
               <li><a href="#">JACQUI E</a></li>
-              <li><a href="#">SMIGGLE</a></li>
             </ul>
           </ul>
         </div>

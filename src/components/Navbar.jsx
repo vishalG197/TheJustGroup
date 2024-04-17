@@ -121,8 +121,8 @@ const Navbar = () => {
         </div>
       </NavbarDiv>
       {open && <Drawer>
-        <AccordionDrawer />
-        {/* <CustomAccordion/> */}
+        {/* <AccordionDrawer /> */}
+        <CustomAccordion/>
       </Drawer>}
 
     </nav>
@@ -133,7 +133,8 @@ export default Navbar;
 
 const nav = styled.nav`
   width:100%;
-
+  
+  }
   `
 
 const NavbarDiv = styled.div`
@@ -145,12 +146,15 @@ const NavbarDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #67729D;
+  background-color: #FDF7E4;
   z-index:10;
-  
+  @media (max-width: 600px){
+    height: 60px;
+  }
   .humburger{
     display:none;
-    color:#ffff;
+    // color:#ffff;
+    color: #30497a;
     font-size:40px;
     @media (max-width: 600px){
       font-size:30px;
@@ -174,7 +178,12 @@ const NavbarDiv = styled.div`
   }
 .logo img {
     height: 100%;
-    width:100%;
+    // width:100%;
+    @media (max-width: 500px) {
+    //  width:100%; 
+    //  height: 80%;
+    //  margin-top:10px;
+    }
   }
 
  
@@ -194,8 +203,8 @@ const NavbarDiv = styled.div`
 
 const NavLink = styled(Link)`
  
-  color: #ffff;
-  // color: #30497a;
+  // color: #ffff;
+  color: #30497a;
   font-weight: bold;
   font-size: 1rem;
   text-decoration: none;
@@ -218,7 +227,8 @@ const DropDown = styled.div`
   right: 10px;
   padding:10px;
   width: 570px;
-  background-color: #67729D;
+  // background-color: #67729D;
+  background-color: #FDF7E4;
   transition: border-bottom 0.3s ease;
   z-index:20;
 
@@ -236,12 +246,13 @@ const DropDown = styled.div`
   }
   li a{
     text-decoration:none;
-    color: #ffff;
+    // color: #ffff;
+    color: #30497a;
    
   }
   li a b{
     text-decoration:none;
-    color: #fffff;
+    // color: #fffff;
   }
 `;
 
@@ -249,6 +260,7 @@ const Drawer = styled.div`
   position:absolute;
   width:85%;
   z-index:100;
+  
 
 `
 

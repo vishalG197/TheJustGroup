@@ -8,7 +8,7 @@ display: flex;
   flex-direction: column;
   align-items: center;
   background: #ffffff;
-  border: 1px solid #e5e5e5;
+  // border: 1px solid #e5e5e5;
   border-radius: 12px;
   // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;

@@ -11,9 +11,10 @@ const SliderWrapper = styled.div`
   // margin: auto;
  background-color: #FDF7E4;
  padding-top:20px;
+ color: #30497a;
  h1{
   text-align: center;
-  color: #30497a;
+ 
   
   paddin-top:20px;
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -13,12 +13,14 @@ import {
 
 import 'react-accessible-accordion/dist/fancy-example.css';
 import CustomAccordion from './CustomAccordian';
+import { BrandContext } from '../contextApi/BrandContextProvider';
 
 const Navbar = () => {
+  const {brands} = useContext(BrandContext)
   const [open, setOpen] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const drawerRef = useRef(null);
-
+// console.log(brands.catalogGroupView)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
@@ -77,13 +79,10 @@ const Navbar = () => {
             onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
           >
             <ul>
-              
-              <li><a href="#"><b> JUST JEANS</b></a></li>
-              <li><a href="#"><b>PORTMANS</b></a></li>
-              <li><a href="#"><b>DOTTI</b></a></li>
-              <li><a href="#"><b>JAY JAYS</b></a></li>
-              <li><a href="#"><b>JACQUI E</b></a></li>
-             
+              {brands.catalogGroupView?.map((brand) => (
+                <li key={brand.uniqueID} ><a target="_blank" rel="noopener noreferrer" href={brand.uniqueID} ><b>{brand.name}</b></a></li>
+              ))}
+            
             </ul>
           </DropDown>
           <NavLink to="/better_practices"

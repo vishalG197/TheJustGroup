@@ -12,7 +12,7 @@ const Homepage = () => {
       <LazySlider />
       <Welcome />
       <BrandCards />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Subscribe />
     </Suspense>
 

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { BrandContext } from '../contextApi/BrandContextProvider';
 
 const fadeIn = keyframes`
   from {
@@ -66,6 +67,7 @@ const NestedAccordionContent = styled.div`
 `;
 
 const CustomAccordion = () => {
+    const { brands } = useContext(BrandContext)
     const [openIndex, setOpenIndex] = useState(null);
     const [openNestedIndex, setOpenNestedIndex] = useState(null);
     const toggleAccordion = (index) => {
@@ -87,29 +89,29 @@ const CustomAccordion = () => {
                         <NestedAccordionContent>
                             <NestedLink href="#">Our History</NestedLink>
                             {/* <NestedLink href="#">Our People</NestedLink> */}
-                            <AccordionItem style={{backgroundColor:'#ffff'}}>
+                            <AccordionItem style={{ backgroundColor: '#ffff' }}>
                                 <AccordionButton onClick={() => toggleNestedAccordion(0)}>
 
-                                    <div style={{fontSize:'16px',paddingLeft:'10px'}}><a href="">  Our People </a></div> <div>{openNestedIndex === 0 ? '-' : '+'}</div>
+                                    <div style={{ fontSize: '16px', paddingLeft: '10px' }}><a href="">  Our People </a></div> <div>{openNestedIndex === 0 ? '-' : '+'}</div>
                                 </AccordionButton>
                                 <AccordionContent isOpen={openNestedIndex === 0}>
                                     <NestedAccordionContent>
-                                        <NestedLink style={{backgroundColor:"#DDDDDD",paddingLeft:'35px'}} href="#">Board of Directors</NestedLink>
-                                        <NestedLink style={{backgroundColor:"#DDDDDD",paddingLeft:'35px'}} href="#">Senior Leaders</NestedLink>
-                                       
+                                        <NestedLink style={{ backgroundColor: "#DDDDDD", paddingLeft: '35px' }} href="#">Board of Directors</NestedLink>
+                                        <NestedLink style={{ backgroundColor: "#DDDDDD", paddingLeft: '35px' }} href="#">Senior Leaders</NestedLink>
+
                                     </NestedAccordionContent>
                                 </AccordionContent>
                             </AccordionItem>
                             {/* <NestedLink href="#">Our Investor</NestedLink> */}
-                            <AccordionItem style={{backgroundColor:'#ffff'}}>
+                            <AccordionItem style={{ backgroundColor: '#ffff' }}>
                                 <AccordionButton onClick={() => toggleNestedAccordion(1)}>
 
-                                    <div style={{fontSize:'16px',paddingLeft:'10px'}}><a href="">Our Investor</a></div> <div>{openNestedIndex === 1 ? '-' : '+'}</div>
+                                    <div style={{ fontSize: '16px', paddingLeft: '10px' }}><a href="">Our Investor</a></div> <div>{openNestedIndex === 1 ? '-' : '+'}</div>
                                 </AccordionButton>
                                 <AccordionContent isOpen={openNestedIndex === 1}>
                                     <NestedAccordionContent>
-                                        <NestedLink style={{backgroundColor:"#DDDDDD",paddingLeft:'35px'}} href="#">PMV</NestedLink>
-                                      
+                                        <NestedLink style={{ backgroundColor: "#DDDDDD", paddingLeft: '35px' }} href="#">PMV</NestedLink>
+
                                     </NestedAccordionContent>
                                 </AccordionContent>
                             </AccordionItem>
@@ -123,11 +125,10 @@ const CustomAccordion = () => {
                     </AccordionButton>
                     <AccordionContent isOpen={openIndex === 1}>
                         <NestedAccordionContent>
-                            <NestedLink href="#">Just Jeans</NestedLink>
-                            <NestedLink href="#">Portmans</NestedLink>
-                            <NestedLink href="#">Dotti</NestedLink>
-                            <NestedLink href="#">Jay Jays</NestedLink>
-                            <NestedLink href="#">Jacqui E</NestedLink>
+                            {brands.catalogGroupView?.map((brand) => (
+                                <NestedLink a target="_blank" rel="noopener noreferrer" href={brand.uniqueID}>{brand.name}</NestedLink>
+                            ))}
+
                         </NestedAccordionContent>
                     </AccordionContent>
                 </AccordionItem>

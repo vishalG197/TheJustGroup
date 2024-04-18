@@ -11,12 +11,6 @@ const Homepage = () => {
 
     <Suspense fallback={<Loder/>}>
     <LazySlider />
-
-
-
-    
-
-
       <Sample />
       <Sample1 />
       <Testimonial/>

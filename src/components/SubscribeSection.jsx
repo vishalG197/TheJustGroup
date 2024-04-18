@@ -45,7 +45,7 @@ const StyledSubscribeSection = styled.div`
   text-align: center;
   padding: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #d3d3d3;
+  background-color: #f0f0f0;
   
   .newsletter-image {
     width: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { RxHamburgerMenu } from 'react-icons/rx';
@@ -16,6 +16,26 @@ import CustomAccordion from './CustomAccordian';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const drawerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        // Click is outside of drawer, so close it
+        setOpen(false);
+      }
+    };
+
+    // Add event listener when component mounts
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
   return (
     <nav>
       <NavbarDiv>
@@ -120,7 +140,7 @@ const Navbar = () => {
           {!open ? <RxHamburgerMenu onClick={() => setOpen(!open)} /> : <MdClose onClick={() => setOpen(!open)} />}
         </div>
       </NavbarDiv>
-      {open && <Drawer>
+      {open && <Drawer ref={drawerRef} >
 
         <CustomAccordion />
       </Drawer>}

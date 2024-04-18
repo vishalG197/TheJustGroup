@@ -8,13 +8,22 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SliderWrapper = styled.div`
   width: 100%;
-  margin: auto;
+  // margin: auto;
  background-color: #FDF7E4;
+ padding-top:20px;
+ h1{
+  text-align: center;
+  color: #30497a;
+  
+  paddin-top:20px;
+
+}
 `;
 
 const TestimonialSlider = () => {
   return (
     <SliderWrapper>
+      <h1>What Our Customers Say</h1>
       <Carousel
         showArrows={true}
         infiniteLoop={true}

@@ -10,7 +10,7 @@ const SubscribeSection = () => {
         <img src={newsletterImage} alt="Newsletter" />
       </div>
       <div className="subscriptionContent">
-        <h2>Subscribe to Our Newsletter</h2>
+        <h2>Subscribe To Our Newsletter</h2>
         <form>
           <input type="email" placeholder="Enter your email" />
           <button type="submit">Subscribe</button>
@@ -82,10 +82,7 @@ const StyledSubscribeSection = styled.div`
     button {
       width: 80px; /* Adjusting button width */
       padding: 10px 0;
-      // background-color: #30497a;
-      // color: #fff;
-      // margin-top: 10px;
-      border: 2px solid black;
+      
       border-radius: 5px;
       cursor: pointer;
     }

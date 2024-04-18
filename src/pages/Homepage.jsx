@@ -5,14 +5,24 @@ import Sample from '../components/Sample';
 import Sample1 from '../components/Sample1';
 const LazySlider = lazy(() => import('../components/SliderComponent'));
 const Subscribe = lazy(() => import('../components/SubscribeSection'));
+const Testimonial = lazy(() => import('../components/Testimonial'));
 const Homepage = () => {
   return (
-    <Suspense fallback={<Loder />}>
-      <LazySlider />
+
+    <Suspense fallback={<Loder/>}>
+    <LazySlider />
+
+
+
+    
+
+
       <Sample />
       <Sample1 />
+      <Testimonial/>
       <Subscribe />
     </Suspense>
+
   )
 }
 

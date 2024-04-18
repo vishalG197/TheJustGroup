@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 500px;
   @media (max-width: 600px) {
     height:200px;
 }
@@ -23,7 +23,7 @@ const Overlay = styled.div`
   position: absolute;
   width: 100%;
   top: 0;
-  height: 400px;
+  height: 500px;
   background-color: black;
   opacity: 0.7;
   display: flex;
@@ -61,7 +61,7 @@ const Text = styled.h1`
 const Welcome = () => {
   return (
     <Container>
-      <Image src="https://t4.ftcdn.net/jpg/04/17/42/57/240_F_417425751_z8Rg86FJnDc8vUSC5Frj3CgD4owjLQTB.jpg" alt="" />
+      <Image src="https://dotti.jgl.com.au/DT/aurora/images/espot/home/DT2403_E6_FashionFrenzy/DT2404_E6_SupportBanner2_AU.jpg" alt="" />
       <Overlay>
         <Text>Welcome to The Just Group </Text>
         <button>About us</button>

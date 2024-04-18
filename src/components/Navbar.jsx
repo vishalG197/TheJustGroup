@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="logo">
           <Link to='/'>
             <img src={'https://www.justgroup.com.au/images/logo.png'} alt='Company Logo' />
-           
+
           </Link>
         </div>
         <div className="links">
@@ -57,13 +57,13 @@ const Navbar = () => {
             onMouseLeave={() => document.getElementById('brands_dropdown').style.display = 'none'}
           >
             <ul>
-              {/* <li><a href="#"><b>PETER ALEXANDER</b></a></li> */}
+              
               <li><a href="#"><b> JUST JEANS</b></a></li>
               <li><a href="#"><b>PORTMANS</b></a></li>
               <li><a href="#"><b>DOTTI</b></a></li>
               <li><a href="#"><b>JAY JAYS</b></a></li>
               <li><a href="#"><b>JACQUI E</b></a></li>
-              {/* <li><a href="#"><b>SMIGGLE </b></a></li> */}
+             
             </ul>
           </DropDown>
           <NavLink to="/better_practices"
@@ -121,8 +121,8 @@ const Navbar = () => {
         </div>
       </NavbarDiv>
       {open && <Drawer>
-        {/* <AccordionDrawer /> */}
-        <CustomAccordion/>
+
+        <CustomAccordion />
       </Drawer>}
 
     </nav>
@@ -260,44 +260,9 @@ const Drawer = styled.div`
   position:absolute;
   width:85%;
   z-index:100;
-  
+  @media (min-width: 960px){
+    display:none;
+  }
 
 `
 
-
-
-function AccordionDrawer() {
-  return (
-    <Accordion>
-      <AccordionItem>
-        <AccordionItemHeading>
-          <AccordionItemButton>
-            What harsh truths do you prefer to ignore?
-          </AccordionItemButton>
-        </AccordionItemHeading>
-        <AccordionItemPanel>
-          <p>
-            Exercitation in fugiat est ut ad ea cupidatat ut in
-            cupidatat occaecat ut occaecat consequat est minim minim
-            esse tempor laborum consequat esse adipisicing eu
-            reprehenderit enim.
-          </p>
-        </AccordionItemPanel>
-      </AccordionItem>
-      <AccordionItem>
-        <AccordionItemHeading>
-          <AccordionItemButton>
-            Is free will real or just an illusion?
-          </AccordionItemButton>
-        </AccordionItemHeading>
-        <AccordionItemPanel>
-          <p>
-            In ad velit in ex nostrud dolore cupidatat consectetur
-            ea in ut nostrud velit in irure cillum tempor laboris
-            sed adipisicing eu esse duis nulla non.
-          </p>
-        </AccordionItemPanel>
-      </AccordionItem>
-    </Accordion>
-  );
-}

@@ -36,18 +36,26 @@ const Name = styled.h3`
   margin-bottom: 5px;
 `;
 
-const Role = styled.h4`
+const Role = styled.p`
+font-weight: bold;
   color: #666666;
-  font-size: 18px;
+  // font-size: 18px;
   margin-bottom: 15px;
 `;
 
 const TestimonialText = styled.p`
   color: #444444;
-  font-type: italic;
-  font-size: 16px;
+  font-style: italic;
+    font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
+  :before{
+    content: '"';
+  }
+  :after{
+    
+    content: '"';
+  }
 `;
 
 const TestimonialCard = ({ testimonial }) => {

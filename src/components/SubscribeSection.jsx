@@ -82,7 +82,7 @@ const StyledSubscribeSection = styled.div`
     button {
       width: 80px; /* Adjusting button width */
       padding: 10px 0;
-      
+
       border-radius: 5px;
       cursor: pointer;
     }
@@ -90,7 +90,7 @@ const StyledSubscribeSection = styled.div`
     button:hover {
       background-color: #2c4268;
       color: white;
-      border:none;
+     
     }
   }
  

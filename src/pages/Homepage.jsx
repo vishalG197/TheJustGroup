@@ -8,7 +8,6 @@ const Subscribe = lazy(() => import('../components/SubscribeSection'));
 const Testimonial = lazy(() => import('../components/Testimonial'));
 const Homepage = () => {
   return (
-
     <Suspense fallback={<Loder />}>
       <LazySlider />
       <Welcome />

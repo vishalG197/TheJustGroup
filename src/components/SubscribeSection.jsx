@@ -15,22 +15,24 @@ const SubscribeSection = () => {
           <input type="email" placeholder="Enter your email" />
           <button type="submit">Subscribe</button>
         </form>
-        <StyledSocialIcons>
-          <FaFacebook className="icon" />
-          <FaTwitter className="icon" />
-          <FaInstagram className="icon" />
-          <FaLinkedin className="icon" />
-        </StyledSocialIcons>
         <StyledContactInfo>
+        <div className="email">
+            <FaEnvelope className="icon" />
+            <span>info@thejustgroup.com</span>
+          </div>
           <div className="phone">
             <FaMobile className="icon" />
             <span>+1234567890</span>
           </div>
-          <div className="email">
-            <FaEnvelope className="icon" />
-            <span>info@thejustgroup.com</span>
-          </div>
+          
         </StyledContactInfo>
+        <StyledSocialIcons>
+          <FaFacebook className="icon" />
+          {/* <FaTwitter className="icon" /> */}
+          <FaInstagram className="icon" />
+          <FaLinkedin className="icon" />
+        </StyledSocialIcons>
+        
       </div>
     </StyledSubscribeSection>
   );
@@ -109,8 +111,9 @@ const StyledSubscribeSection = styled.div`
 `;
 
 const StyledSocialIcons = styled.div`
-  margin-bottom: 20px;
-
+  margin-bottom: 10px;
+  margin-top: 20px;
+margin-left:-20px;
   .icon {
     margin: 0 10px;
     font-size: 20px;
@@ -128,6 +131,7 @@ const StyledContactInfo = styled.div`
 
   .phone,
   .email {
+    text-align:left;
     display: flex;
     align-items: center;
     margin-right: 20px;

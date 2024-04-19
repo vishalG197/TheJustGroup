@@ -13,7 +13,7 @@ const Homepage = () => {
       <Welcome />
       <BrandCards />
       <Subscribe />
-      <MoreBrand />
+      {/* <MoreBrand /> */}
     </Suspense>
 
   )

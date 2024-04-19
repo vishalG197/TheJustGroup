@@ -89,7 +89,7 @@ const Navbar = () => {
             onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
             onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
           >Better Practices</NavLink>
-          <DropDown id='practieces_dropdown' style={{ display: 'none', width: '340px' }}
+          <DropDown id='practieces_dropdown' style={{ display: 'none', width: '360px' }}
             onMouseEnter={() => document.getElementById('practieces_dropdown').style.display = 'block'}
             onMouseLeave={() => document.getElementById('practieces_dropdown').style.display = 'none'}
           >

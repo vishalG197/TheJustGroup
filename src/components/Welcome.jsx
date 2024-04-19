@@ -42,7 +42,11 @@ const Overlay = styled.div`
     padding:10px 20px; 
     border-radius:5px;
     font-size:1.2em;
-    margin-top:50px;   
+    margin-top:50px; 
+    a{
+      text-decoration:none;
+      color:white;
+    }  
     @media (max-width: 600px) {
         margin-top:20px; 
     }
@@ -65,7 +69,7 @@ const Welcome = () => {
       <Image src={banner} alt="" />
       <Overlay>
         <Text>Welcome to The Just Group </Text>
-        <button>About us</button>
+        <button><a href="/about">About us</a></button>
       </Overlay>
     </Container>
   );

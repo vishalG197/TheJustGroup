@@ -23,11 +23,12 @@ const MoreBrand = () => {
         <BrandDiv>
             <p><b>MORE BRANDS. ONE CHECKOUT. ONE DELIVERY.</b></p>
             <div>
-                <img src={brand1} alt="" />
-                <img src={brand2} alt="" />
-                <img src={brand3} alt="" />
-                <img src={brand14} alt="" />
-                <img src={brand4} alt="" />
+               <a href=""> <img src={brand1} alt="justjean" /></a>
+                <a href=""><img src={brand2} alt="dotti" /></a>
+                <a href=""><img src={brand3} alt="jacquiE"/></a>
+                <a href=""><img src={brand4} alt="jayjeans"/></a>
+               <a href=""><img src={brand14} alt="portmans" /></a> 
+                <img src={brand4} alt="jayjeans" />
                 <img src={brand5} alt="" />
                 <img src={brand6} alt="" />
                 <img src={brand7} alt="" />
@@ -57,7 +58,7 @@ const BrandDiv = styled.div`
     padding: 0 20px;
     box-sizing: border-box;
     padding: 50px 0;
-    background-color: #f0f0f0;
+    background-color: #FDF7E4;
 
     p {
         font-size: 14px;

@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { BrandContext } from '../contextApi/BrandContextProvider';
+import MoreBrand from './MoreBrand';
 
 
 const Footer = () => {
-  const {brands} = useContext(BrandContext)
+  const {brands} = useContext(BrandContext);
 
   return (
     <FooterDiv>
@@ -99,6 +100,7 @@ const Footer = () => {
         </div>
 
       </div>
+      <MoreBrand/>
       <div className='footerbottom'>
         <div><a href="#">TERMS OF USE</a></div> | <div><a href="#">PRIVACY POLICY</a></div>
       </div>

@@ -152,11 +152,12 @@ export default Navbar;
 
 const nav = styled.nav`
   width:100%;
-  
-  }
-  `
+}
+`
 
 const NavbarDiv = styled.div`
+// position: fixed;
+
   width:100%;
   height: 110px;
   top:0;

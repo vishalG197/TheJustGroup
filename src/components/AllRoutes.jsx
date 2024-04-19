@@ -5,8 +5,8 @@ import About from '../pages/About'
 import BetterPracties from '../pages/BetterPracties'
 import Careers from '../pages/Careers'
 import Contact from '../pages/Contact'
-import Ourbrands from '../pages/Ourbrands'
 import OurbrandsDetails from '../pages/OurbrandsDetails'
+import Ourbrands from '../pages/Ourbrands'
 
 const AllRoutes = () => {
   return (

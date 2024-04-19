@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import banner from '../assets/banner.png'
 
 const Container = styled.div`
   position: relative;
@@ -25,7 +26,7 @@ const Overlay = styled.div`
   top: 0;
   height: 500px;
   background-color: black;
-  opacity: 0.7;
+  opacity: 0.5;
   display: flex;
   justify-content: center;
   flex-direction:column;
@@ -61,7 +62,7 @@ const Text = styled.h1`
 const Welcome = () => {
   return (
     <Container>
-      <Image src="https://dotti.jgl.com.au/DT/aurora/images/espot/home/DT2403_E6_FashionFrenzy/DT2404_E6_SupportBanner2_AU.jpg" alt="" />
+      <Image src={banner} alt="" />
       <Overlay>
         <Text>Welcome to The Just Group </Text>
         <button>About us</button>

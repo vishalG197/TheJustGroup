@@ -6,16 +6,17 @@ import BetterPracties from '../pages/BetterPracties'
 import Careers from '../pages/Careers'
 import Contact from '../pages/Contact'
 import Ourbrands from '../pages/Ourbrands'
+import OurbrandsDetails from '../pages/OurbrandsDetails'
 
 const AllRoutes = () => {
   return (
     <Routes>
-
         <Route path="/" element={<Homepage />} />
         <Route path="/better_practices" element={<BetterPracties />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/our_brands" element={<Ourbrands />} />
+        <Route path="/:id" element={<OurbrandsDetails />} />
         <Route path="/about" element={<About />} />
     </Routes>
   )

@@ -1,46 +1,49 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const link = [
-  { title: "Portmans", link: "https://portmans.jgl.com.au/" },
-  { title: "JayJays", link: "https://jayjays.jgl.com.au/" },
-  { title: "dotti", link: "https://dotti.jgl.com.au/" },
-  { title: "Jacqui E", link: "https://jacquie.jgl.com.au/" },
-  { title: "Just Jeans", link: "https://justjeans.jgl.com.au/" },
-];
+import { BrandContext } from '../contextApi/BrandContextProvider';
 
 const SliderComponent = () => {
+  const { brands } = useContext(BrandContext);
+  const ids = brands.catalogGroupView || []; // Ensure ids is initialized properly
   const [data, setData] = useState([]);
+// const link = ids.find(link => link.name === data[0].title);
+// console.log(link)
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("http://49.206.253.146:2109/getContent");
+      const apiData = res.data;
+
+
+      // const mergedData = apiData.map(item => {
+      //   const matchedItem = ids.find(linkItem => linkItem.name === item.title);
+      //   if (matchedItem) {
+      //     return {
+      //       ...matchedItem,
+      //       ...item
+      //     };
+      //   } else {
+      //     return item;
+      //   }
+      // });
+  
+      setData(apiData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get("http://49.206.253.146:2109/getContent");
-        const apiData = res.data;
-        const mergedData = apiData.map(item => {
-          const matchedItem = link.find(linkItem => linkItem.title === item.title);
-          return {
-            ...item,
-            link: matchedItem ? matchedItem.link : '',
-          };
-        });
-        setData(mergedData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchData();
   }, []);
 
-  const handleImageClick = (link) => {
-    console.log("link clicked:", link);
-    window.open(link, "_blank");
+  const handleImageClick = (url) => {
+    // Define your logic for handling the image click
+    window.open(url, "_blank"); // Open the URL in a new tab
   };
 
   const NextArrow = (props) => {
@@ -86,18 +89,22 @@ const SliderComponent = () => {
     ],
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    onClick: (index) => handleImageClick(data[index].link),
   };
-
+console.log(data)
   return (
     <SliderDiv>
-      {data.length > 0 && (
+      {data.length > 0 && ( // Check if data has items before rendering the slider
         <StyledSlider {...settings}>
-          {data.map((item, index) => (
-            <div key={index} onClick={() => handleImageClick(item.link)}>
-              <img src={item.url} alt={item.title} />
-            </div>
-          ))}
+         {data.map((item, index) => {
+  const link = ids.find(link => link.name === item.title);
+  return (
+    <div key={index}>
+      <a href={link ? link.uniqueID : "#"} target="_blank" rel="noopener noreferrer">
+        <img src={item.url} alt={item.title} />
+      </a>
+    </div>
+  );
+})}
         </StyledSlider>
       )}
     </SliderDiv>

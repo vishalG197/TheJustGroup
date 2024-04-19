@@ -4,6 +4,7 @@ import banner from '../assets/banner.png'
 
 const Container = styled.div`
   position: relative;
+  margin-top:-4px;
   width: 100%;
   height: 500px;
   @media (max-width: 600px) {
@@ -43,6 +44,12 @@ const Overlay = styled.div`
     border-radius:5px;
     font-size:1.2em;
     margin-top:50px; 
+    &:hover {
+      background-color: white;
+      a{
+        color:black;
+      }
+    }
     a{
       text-decoration:none;
       color:white;

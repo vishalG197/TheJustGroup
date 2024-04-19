@@ -7,6 +7,7 @@ import ScrollToTopArrow from '../components/ScrollToStop';
 // import img from '../assets/gift-banner.png';
 // import styled from 'styled-components';
 // import MoreBrand from '../components/MoreBrand';
+
 const LazySlider = lazy(() => import('../components/SliderComponent'));
 const Subscribe = lazy(() => import('../components/SubscribeSection'));
 const Welcome = lazy(() => import('../components/Welcome'));

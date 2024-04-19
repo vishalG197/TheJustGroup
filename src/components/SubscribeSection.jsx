@@ -41,7 +41,7 @@ const StyledSubscribeSection = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap:50px;
+  gap:20px;
   text-align: center;
   padding: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

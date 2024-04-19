@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { BrandContext } from '../contextApi/BrandContextProvider';
 
 
 const Footer = () => {
+  const {brands} = useContext(BrandContext)
+
   return (
     <FooterDiv>
       <div className="logo">
@@ -35,11 +38,14 @@ const Footer = () => {
           <ul>
             <li className="headingList"><a href="#">OUR BRAND</a></li>
             <ul>
-              <li><a href="#">JUST JEANS</a></li>
+              {brands.catalogGroupView?.map((brand) => (
+                <li key={brand.uniqueID}><a href={brand.uniqueID}>{brand.name}</a></li>
+              ))}
+              {/* <li><a href="#">JUST JEANS</a></li>
               <li><a href="#">PORTMANS</a></li>
               <li><a href="#">DOTTI</a></li>
               <li><a href="#">JAY JAYS</a></li>
-              <li><a href="#">JACQUI E</a></li>
+              <li><a href="#">JACQUI E</a></li> */}
             </ul>
           </ul>
         </div>

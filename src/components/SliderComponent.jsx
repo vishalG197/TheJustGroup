@@ -90,7 +90,7 @@ const SliderComponent = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
-console.log(data)
+// console.log(data)
   return (
     <SliderDiv>
       {data.length > 0 && ( // Check if data has items before rendering the slider
@@ -115,6 +115,7 @@ export default SliderComponent;
 
 const SliderDiv = styled.div`
   cursor: pointer;
+  margin:0;
 `;
 
 const StyledSlider = styled(Slider)`
